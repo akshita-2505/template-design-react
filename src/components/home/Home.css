@@ -1,0 +1,256 @@
+.header {
+    height: 80px;
+    background-color: #3C5A98;
+    color: white;
+    text-align: center;
+    white-space: pre-wrap;
+    align-items: center;
+    display: flex;
+}
+
+.facebookFont {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.inputTextField {
+    flex-direction: column;
+    margin-left: -65px;
+    font-size: 13px;
+}
+
+.passwordTextField {
+    flex-direction: column;
+    margin-left: -95px;
+    font-size: 13px;
+}
+
+.searchTextField {
+    margin-left: 500px;
+    border-width: 5px;
+    border-color: black;
+}
+
+.loginButton{
+    color: #2874f0;
+    font-weight: 500;
+    background-color: #fff;
+    cursor: pointer;
+    border-radius: 2px;
+    height: 32px;
+    padding: 5px 40px;
+    border: 1px solid #dbdbdb;
+}
+
+.textStyle {
+    color: #0e385f;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 29px;
+    margin-top: 40px;
+    width: 450px;
+    word-spacing: -1px;
+}
+
+.inputTextStyle {
+    border-width: 1px;
+    border-color: black;
+    height: 20px;
+    width: 150px;
+}
+
+.loginButton {
+    margin-left: 20px;
+    /*width: 100px;*/
+    /*height: 20px;*/
+    background-color: #3C5A98;
+    color: white;
+    border-width: 1px;
+}
+
+.div1 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.div2 {
+    color: #1d2129;
+    font-size: 19px;
+}
+
+.inputTextModification {
+    height: 35px;
+    border-radius: 5px;
+    border-width: 1px;
+    border-color: #bdc7d8;
+    width: 25%;
+    margin-top: 2%;
+    font-size: 20px;
+    padding-left: 7px;
+}
+
+.birthdayTag {
+    margin-top: 3%;
+    color: #90949c;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.selectOption {
+    align-items:center;
+    background-color:rgb(255, 255, 255);
+    border-bottom-color:rgb(204, 208, 213);
+    border-bottom-left-radius:5px;
+    border-bottom-right-radius:5px;
+    border-bottom-style:solid;
+    border-bottom-width:1px;
+    border-image-outset:0px;
+    border-image-repeat:stretch;
+    border-image-slice:100%;
+    border-image-source:none;
+    border-image-width:1;
+    border-left-color:rgb(204, 208, 213);
+    border-left-style:solid;
+    border-left-width:1px;
+    border-right-color:rgb(204, 208, 213);
+    border-right-style:solid;
+    border-right-width:1px;
+    border-top-color:rgb(204, 208, 213);
+    border-top-left-radius:5px;
+    border-top-right-radius:5px;
+    border-top-style:solid;
+    border-top-width:1px;
+    box-sizing:border-box;
+    color:rgb(28, 30, 33);
+    cursor:default;
+    direction:ltr;
+    display:inline-block;
+    font-family:system-ui, -apple-system, system-ui, ".SFNSText-Regular", sans-serif;
+    font-size:13px;
+    font-stretch:100%;
+    font-style:normal;
+    font-variant-caps:normal;
+    font-variant-east-asian:normal;
+    font-variant-ligatures:normal;
+    font-variant-numeric:normal;
+    font-weight:400;
+    height:30px;
+    letter-spacing:normal;
+    line-height:normal;
+    margin-bottom:0px;
+    margin-left:0px;
+    margin-right:0px;
+    margin-top:0px;
+    overflow-x:visible;
+    overflow-y:visible;
+    padding-bottom:0px;
+    padding-left:0px;
+    padding-right:0px;
+    padding-top:0px;
+    text-align:start;
+    text-indent:0px;
+    text-rendering:auto;
+    text-shadow:none;
+    text-transform:none;
+    white-space:pre;
+    width:62px;
+    word-spacing:0px;
+    writing-mode:horizontal-tb;
+    -webkit-appearance:menulist-button;
+    -webkit-font-smoothing:subpixel-antialiased;
+    -webkit-rtl-ordering:logical;
+}
+
+._58mv {
+    color:#777;
+    direction:ltr;
+    display:block;
+    font-family:system-ui, -apple-system, system-ui, ".SFNSText-Regular", sans-serif;
+    font-size:12px;
+    height:42px;
+    line-height:16.08px;
+    width:399px;
+    -webkit-font-smoothing:subpixel-antialiased;
+}
+._6wk {
+    align-items:flex-start;
+    background-attachment:scroll;
+    background-clip:border-box;
+    background-color:rgb(105, 167, 78);
+    background-image:linear-gradient(rgb(103, 174, 85), rgb(87, 136, 67));
+    background-origin:padding-box;
+    background-position-x:0%;
+    background-position-y:0%;
+    background-size:auto;
+    border-bottom-color:rgb(44, 81, 21);
+    border-bottom-left-radius:5px;
+    border-bottom-right-radius:5px;
+    border-bottom-style:solid;
+    border-bottom-width:1px;
+    border-image-outset:0px;
+    border-image-repeat:stretch;
+    border-image-slice:100%;
+    border-image-source:none;
+    border-image-width:1;
+    border-left-color:rgb(59, 110, 34);
+    border-left-style:solid;
+    border-left-width:1px;
+    border-right-color:rgb(59, 110, 34);
+    border-right-style:solid;
+    border-right-width:1px;
+    border-top-color:rgb(59, 110, 34);
+    border-top-left-radius:5px;
+    border-top-right-radius:5px;
+    border-top-style:solid;
+    border-top-width:1px;
+    box-shadow:rgb(164, 227, 136) 0px 1px 1px 0px inset;
+    box-sizing:border-box;
+    color:rgb(255, 255, 255);
+    cursor:pointer;
+    direction:ltr;
+    display:inline-block;
+    font-family:"Freight Sans Bold", Helvetica, Arial, sans-serif;
+    font-size:19px;
+    font-stretch:100%;
+    font-style:normal;
+    font-variant-caps:normal;
+    font-variant-east-asian:normal;
+    font-variant-ligatures:normal;
+    font-variant-numeric:normal;
+    font-weight:700;
+    height:39px;
+    letter-spacing:normal;
+    line-height:23.94px;
+    margin-bottom:10px;
+    margin-left:0px;
+    margin-right:0px;
+    margin-top:10px;
+    min-width:194px;
+    padding-bottom:7px;
+    padding-left:20px;
+    padding-right:20px;
+    padding-top:7px;
+    position:relative;
+    text-align:center;
+    text-indent:0px;
+    text-rendering:optimizelegibility;
+    text-shadow:rgba(0, 0, 0, 0.5) 0px 1px 2px;
+    text-transform:none;
+    width:194px;
+    word-spacing:0px;
+    writing-mode:horizontal-tb;
+    -webkit-appearance:none;
+    -webkit-font-smoothing:subpixel-antialiased;
+    -webkit-border-image:none
+}
+._58mk {
+    border-top: 1px solid #dddfe2;
+    color: #666;
+    font-size: 13px;
+    font-weight: bold;
+    margin-top: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
