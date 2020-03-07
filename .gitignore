@@ -22,10 +22,4 @@ yarn-error.log*
 
 #Menually add
 package-lock.json
-LICENSE.md
-docs
-CHANGELOG.md
-.idea/
-ISSUE_TEMPLATE.md
-jsconfig.json
-public
+

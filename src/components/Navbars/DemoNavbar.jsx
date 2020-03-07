@@ -109,10 +109,8 @@ class Header extends React.Component {
       this.sidebarToggle.current.classList.toggle("toggled");
     }
   }
-  onClick = () => {
-    this.setState({
-      modalVisible: true
-    })
+  uploadMultipleImages = () => {
+
   };
   render() {
     return (
@@ -169,12 +167,12 @@ class Header extends React.Component {
             </form>
             <Nav navbar>
               <NavItem>
-                <Link to="#pablo" className="nav-link btn-magnify">
+                <div className="nav-link btn-magnify" onClick={this.uploadMultipleImages}>
                   <i className="nc-icon nc-layout-11" />
                   <p>
-                    <span className="d-lg-none d-md-block">Stats</span>
+                    <span className="d-lg-none d-md-block">Photos</span>
                   </p>
-                </Link>
+                </div>
               </NavItem>
               <Dropdown
                 nav
@@ -193,7 +191,7 @@ class Header extends React.Component {
                   <DropdownItem tag="a">Something else here</DropdownItem>
                 </DropdownMenu>
               </Dropdown>
-              <NavItem onClick={this.onClick}>
+              <NavItem>
                 <Link to="/admin/dashboard" className="nav-link btn-rotate">
                   <i className="nc-icon nc-settings-gear-65" />
                   <p>
