@@ -22,4 +22,5 @@ yarn-error.log*
 
 #Menually add
 package-lock.json
+.idea
 

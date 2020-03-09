@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
@@ -27,6 +27,10 @@ const PrivateRoute = ({component: Component, ...props}) => (
 );
 
 function App() {
+    /*useEffect(() => {
+        //Work with https
+        serviceWorker.register();
+    }, []);*/
     return (
         <Router>
             <Switch>
@@ -43,5 +47,3 @@ function App() {
 }
 
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
-
-serviceWorker.unregister();
