@@ -34,9 +34,9 @@ function App() {
                 <Route exact path='/login' component={Login}/>
                 <Route exact path='/signup' component={Signup}/>
                 <PrivateRoute exact path='/profile' component={Profile}/>
-                <Route path="/admin" component={AdminLayout} />} />
-                <Route path="/dashboard" component={AdminLayout} />
-                <Redirect from='/' to="home"/>
+                <PrivateRoute path="/admin" component={AdminLayout} />} />
+                <PrivateRoute path="/dashboard" component={AdminLayout} />
+                <Redirect from='/' to="/home"/>
             </Switch>
         </Router>
     );

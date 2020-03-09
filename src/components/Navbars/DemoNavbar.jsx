@@ -1,23 +1,4 @@
-/*!
-
-=========================================================
-* Paper Dashboard React - v1.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/paper-dashboard-react
-* Copyright 2019 Creative Tim (https://www.creative-tim.com)
-
-* Licensed under MIT (https://github.com/creativetimofficial/paper-dashboard-react/blob/master/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 import React from "react";
-import { Link } from "react-router-dom";
 import {
   Collapse,
   Navbar,
@@ -35,8 +16,10 @@ import {
   InputGroupAddon,
   Input
 } from "reactstrap";
-
 import routes from "routes.js";
+import firebase from "firebase";
+
+let uid;
 
 class Header extends React.Component {
   constructor(props) {
@@ -45,11 +28,15 @@ class Header extends React.Component {
       isOpen: false,
       dropdownOpen: false,
       color: "transparent",
-      modalVisible: false
+      modalVisible: false,
+      settingDropDown: false
     };
     this.toggle = this.toggle.bind(this);
     this.dropdownToggle = this.dropdownToggle.bind(this);
     this.sidebarToggle = React.createRef();
+  }
+  componentWillMount() {
+    uid = localStorage.getItem('isAuth');
   }
   toggle() {
     if (this.state.isOpen) {
@@ -70,6 +57,11 @@ class Header extends React.Component {
       dropdownOpen: !this.state.dropdownOpen
     });
   }
+  settingDropdownToggle(e) {
+    this.setState({
+      settingDropDown: !this.state.settingDropDown
+    });
+  }
   getBrand() {
     let brandName = "Default Brand";
     routes.map((prop, key) => {
@@ -84,7 +76,6 @@ class Header extends React.Component {
     document.documentElement.classList.toggle("nav-open");
     this.sidebarToggle.current.classList.toggle("toggled");
   }
-  // function that adds color dark/transparent to the navbar on resize (this is for the collapse)
   updateColor() {
     if (window.innerWidth < 993 && this.state.isOpen) {
       this.setState({
@@ -99,6 +90,10 @@ class Header extends React.Component {
   componentDidMount() {
     window.addEventListener("resize", this.updateColor.bind(this));
   }
+  handleLogout = () => {
+    localStorage.clear();
+    this.props.history.push('/home');
+  };
   componentDidUpdate(e) {
     if (
       window.innerWidth < 993 &&
@@ -109,12 +104,47 @@ class Header extends React.Component {
       this.sidebarToggle.current.classList.toggle("toggled");
     }
   }
-  uploadMultipleImages = () => {
+  uploadMultipleImages = e => {
+    this.setState({ uploading: true })
+    for (let i = 0; i < e.target.files.length; i++) {
+      let imageFile = e.target.files[i];
+      this.uploadImageToStorage(imageFile);
+    }
+  };
 
+  uploadImageToStorage = (files) => {
+    const uploadTask = firebase.storage().ref(`${uid}/multipleImage/${files.name}`).put(files);
+    uploadTask.on(
+        "state_changed",
+        snapshot => {
+          // progress function ...
+          const progress = Math.round(
+              (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+          );
+          this.setState({ progress });
+        },
+        error => {
+          // Error function ...
+          console.log(error);
+        },
+        () => {
+          // complete function ...
+          firebase.storage()
+              .ref(`${uid}/multipleImage/`)
+              .child(files.name)
+              .getDownloadURL()
+              .then(url => {
+                console.log(url);
+                this.setState({ url });
+                firebase.database().ref(`/users/${uid}/posts/`).push(url).then(() => {
+                  this.setState({ url });
+                })
+              });
+        }
+    )
   };
   render() {
     return (
-      // add or remove classes depending if we are on full-screen-maps page or not
       <Navbar
         color={
           this.props.location.pathname.indexOf("full-screen-maps") !== -1
@@ -167,11 +197,14 @@ class Header extends React.Component {
             </form>
             <Nav navbar>
               <NavItem>
-                <div className="nav-link btn-magnify" onClick={this.uploadMultipleImages}>
-                  <i className="nc-icon nc-layout-11" />
-                  <p>
-                    <span className="d-lg-none d-md-block">Photos</span>
-                  </p>
+                <div className='nav-link btn-magnify'>
+                  <label htmlFor='multi'>
+                    <i className="nc-icon nc-layout-11" />
+                    <p>
+                      <span className="d-lg-none d-md-block">Photos</span>
+                    </p>
+                  </label>
+                  <input type='file' id='multi' onChange={this.uploadMultipleImages} multiple />
                 </div>
               </NavItem>
               <Dropdown
@@ -191,14 +224,21 @@ class Header extends React.Component {
                   <DropdownItem tag="a">Something else here</DropdownItem>
                 </DropdownMenu>
               </Dropdown>
-              <NavItem>
-                <Link to="/admin/dashboard" className="nav-link btn-rotate">
+              <Dropdown
+                  nav
+                  isOpen={this.state.settingDropDown}
+                  toggle={e => this.settingDropdownToggle(e)}
+              >
+                <DropdownToggle caret nav>
                   <i className="nc-icon nc-settings-gear-65" />
                   <p>
                     <span className="d-lg-none d-md-block">Account</span>
                   </p>
-                </Link>
-              </NavItem>
+                </DropdownToggle>
+                <DropdownMenu right>
+                  <DropdownItem tag="a" onClick={this.handleLogout}>Logout</DropdownItem>
+                </DropdownMenu>
+              </Dropdown>
             </Nav>
           </Collapse>
         </Container>

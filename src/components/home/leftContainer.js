@@ -11,7 +11,7 @@ class LeftContainer extends React.Component{
         return(
             <div style={{flex: 1, marginLeft: '18%'}}>
                 <div className={'textStyle'}>Facebook helps you connect and share with the people in your life.</div>
-                <img src="https://static.xx.fbcdn.net/rsrc.php/v3/yi/r/OBaVg52wtTZ.png" />
+                <img src="https://static.xx.fbcdn.net/rsrc.php/v3/yi/r/OBaVg52wtTZ.png" alt={'Loading'} />
             </div>
         )
     }

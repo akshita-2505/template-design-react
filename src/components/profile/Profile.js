@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React from 'react'
 import Buttons from './Buttons'
 import './App.css'
 import  firebase from 'firebase/app';
